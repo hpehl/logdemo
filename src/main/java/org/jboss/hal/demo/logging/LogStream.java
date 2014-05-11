@@ -37,7 +37,7 @@ public class LogStream {
 
     @Inject Logger logger;
 
-    @Schedule(second = "*/5", minute = "*", hour = "*", persistent = false)
+    @Schedule(second = "*/2", minute = "*", hour = "*", persistent = false)
     public void log() {
         String message = RandomStringUtils.randomAlphanumeric(10);
         logger.trace("Random log message from {}: {}", getClass().getName(), message);
@@ -45,6 +45,5 @@ public class LogStream {
         logger.info("Random log message from {}: {}", getClass().getName(), message);
         logger.warn("Random log message from {}: {}", getClass().getName(), message);
         logger.error("Random log message from {}: {}", getClass().getName(), message);
-        logger.error("----------------------------");
     }
 }
